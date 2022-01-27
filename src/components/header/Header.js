@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import userico from "../../assets/images/useico.png";
 import Logo from "../../assets/images/Logo2.png";
 import "./Header.scss";
+import { BiSlideshow, BiHomeSmile } from "react-icons/bi";
+import { MdLocalMovies } from "react-icons/md";
 const Header = () => {
   return (
     <div className="header">
@@ -13,13 +15,16 @@ const Header = () => {
         </Link>
         <div className="tabsContainer ">
           <Link to="/" className="tab link">
-            Home
+            <BiHomeSmile className="tab-icon" />
+            <span>Home</span>
           </Link>
           <Link to="/movies" className="tab link">
-            Movies
+            <MdLocalMovies className="tab-icon" />
+            <span>Movies</span>
           </Link>
           <Link to="/webshows" className="tab link">
-            Web Shows
+            <BiSlideshow className="tab-icon" />
+            <span>Web Shows</span>
           </Link>
           <div className="user-image">
             <img src={userico} alt="user" />

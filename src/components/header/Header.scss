@@ -44,10 +44,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 400px;
   // background-color: red;
 }
 
+.tab {
+  display: flex;
+  align-items: center;
+}
+
+.tab-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+}
 .user-image,
 .user-image img {
   width: 38px;
@@ -61,6 +71,12 @@
 
 @media (max-width: 720px) {
   .logo {
+    display: none;
+  }
+  .tabsContainer {
+    width: 200px;
+  }
+  .tab span {
     display: none;
   }
 }

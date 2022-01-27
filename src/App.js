@@ -16,7 +16,6 @@ function App() {
           <Route path="/" exact element={<Home />}></Route>
           <Route path="/movies" exact element={<MoviesPage />}></Route>
           <Route path="/webshows" exact element={<ShowsPage />}></Route>
-
           <Route element={<PageNotFound />}></Route>
         </Routes>
       </div>
