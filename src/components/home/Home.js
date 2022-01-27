@@ -10,6 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Home.scss";
 import SuggestionsCard from "./SuggestionsCard";
 import NewsCard from "./NewsCard";
+import TrailersCard from "./TrailersCard";
 const Home = () => {
   return (
     <>
@@ -18,42 +19,42 @@ const Home = () => {
         <div className="trailers-container">
           <h1>Latest Trailer</h1>
           <div className="trailers-list">
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" />
-              <span>The Batman Trailer</span>
-            </div>
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg" />
-              <span>The Lord of the rings</span>
-            </div>
-            <div className="content-container">
-              <img src="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370" />
-              <span>Ozark Season 4</span>
-            </div>
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" />
-              <span>The Batman Trailer</span>
-            </div>
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg" />
-              <span>The Lord of the rings</span>
-            </div>
-            <div className="content-container">
-              <img src="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370" />
-              <span>Ozark Season 4</span>
-            </div>
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" />
-              <span>The Batman Trailer</span>
-            </div>
-            <div className="content-container">
-              <img src="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg" />
-              <span>The Lord of the rings</span>
-            </div>
-            <div className="content-container">
-              <img src="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370" />
-              <span>Ozark Season 4</span>
-            </div>
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+              title="The Batman Trailer"
+            />
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg"
+              title="The Lord of the rings"
+            />
+            <TrailersCard
+              image="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370"
+              title="Ozark Season 4"
+            />
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+              title="The Batman Trailer"
+            />
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg"
+              title="The Lord of the rings"
+            />
+            <TrailersCard
+              image="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370"
+              title="Ozark Season 4"
+            />
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+              title="The Batman Trailer"
+            />
+            <TrailersCard
+              image="https://m.media-amazon.com/images/M/MV5BOTUzYTMwYjAtNzMzMS00YjhmLWEwOGQtY2MxZGEyMzMwZDI0XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg"
+              title="The Lord of the rings"
+            />
+            <TrailersCard
+              image="https://timesofindia.indiatimes.com/thumb/88947889.cms?width=219&height=317&quality=80&imgsize=7370"
+              title="Ozark Season 4"
+            />
           </div>
         </div>
       </div>
