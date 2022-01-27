@@ -11,6 +11,7 @@ import { FaThumbsUp } from "react-icons/fa";
 import { RiMovie2Fill } from "react-icons/ri";
 import { MdDateRange } from "react-icons/md";
 import { removeContent } from "../../features/contentDetails/fetchDetailsSlice";
+import LoaderAnimation from "../../assets/loader/LoaderAnimation";
 const MovieDetail = () => {
   const { imdbID } = useParams();
   const dispatch = useDispatch();
@@ -76,7 +77,7 @@ const MovieDetail = () => {
             </div>
           </>
         ) : (
-          <div>Loading...</div>
+          <LoaderAnimation />
         )}
       </div>
     </>

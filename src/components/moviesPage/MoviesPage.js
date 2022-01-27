@@ -5,6 +5,7 @@ import {
   fetchAsyncMovies,
   getAllMovies,
 } from "../../features/movies/movieSlice";
+import LoaderAnimation from "../../assets/loader/LoaderAnimation";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,11 @@ const MoviesPage = () => {
   }, [dispatch]);
   return (
     <div>
-      <MovieListing content={movies} contentType="Movies" />
+      {movies ? (
+        <MovieListing content={movies} contentType="Movies" />
+      ) : (
+        <LoaderAnimation />
+      )}
     </div>
   );
 };

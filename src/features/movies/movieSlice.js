@@ -15,7 +15,7 @@ export const fetchAsyncMovies = createAsyncThunk(
 );
 
 const initialState = {
-  movies: {},
+  movies: null,
 };
 
 const movieSlice = createSlice({
@@ -37,6 +37,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { addMovie } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export default movieSlice.reducer;

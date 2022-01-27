@@ -15,7 +15,7 @@ export const fetchAsyncSeries = createAsyncThunk(
 );
 
 const initialState = {
-  series: {},
+  series: null,
 };
 
 const showsSlice = createSlice({
