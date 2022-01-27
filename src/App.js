@@ -3,8 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import PageNotFound from "./components/pageNotFound/PageNotFound";
 import Footer from "./components/footer/Footer";
-import MovieDetail from "./components/contentDetail/ContentDetail";
+
 import Header from "./components/header/Header";
+import MoviesPage from "./components/moviesPage/MoviesPage";
+import ShowsPage from "./components/showsPage/ShowsPage";
 function App() {
   return (
     <div className="App">
@@ -12,7 +14,9 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
-          <Route path="/movie/:imdbID" element={<MovieDetail />}></Route>
+          <Route path="/movies" exact element={<MoviesPage />}></Route>
+          <Route path="/webshows" exact element={<ShowsPage />}></Route>
+
           <Route element={<PageNotFound />}></Route>
         </Routes>
       </div>

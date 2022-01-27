@@ -40,6 +40,14 @@
   font-weight: 600;
 }
 
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  // background-color: red;
+}
+
 .user-image,
 .user-image img {
   width: 38px;
