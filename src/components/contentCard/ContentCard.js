@@ -1,5 +1,5 @@
 import React from "react";
-import "./MovieCard.scss";
+import "./ContentCard.scss";
 
 const MovieCard = ({ data }) => {
   console.log(data);

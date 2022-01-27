@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import MovieListing from "../movieListing/MovieListing";
+import MovieListing from "../contentListing/ContentListing";
 import movieAPI from "../../apis/movieAPI";
 import { API_Key } from "../../apis/movieAPI_KEY";
 import { useDispatch } from "react-redux";
