@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { getAllMovies } from "../../features/movies/movieSlice";
+import React from "react";
+
 import MovieCard from "../contentCard/ContentCard";
 import "./ContentListing.scss";
-import { useLocation } from "react-router-dom";
+
 const MovieListing = ({ content, contentType }) => {
   return (
     <div className="movie-wrapper">

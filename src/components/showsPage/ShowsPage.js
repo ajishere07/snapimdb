@@ -9,17 +9,6 @@ const ShowsPage = () => {
   const series = useSelector(getAllShows);
 
   useEffect(() => {
-    // const fetchMoviesData = async () => {
-    //   const res = await movieAPI
-    //     .get(`?apiKey=${API_Key}&s=${movieText}&type=movie`)
-    //     .catch((e) => {
-    //       console.log("Error:", e);
-    //     });
-    //   console.log(res);
-    //   dispatch(addMovie(res.data));
-    // };
-
-    // fetchMoviesData();
     dispatch(fetchAsyncSeries());
   }, [dispatch]);
   return (
