@@ -4,12 +4,15 @@ import MovieCard from "../contentCard/ContentCard";
 import "./ContentListing.scss";
 
 const MovieListing = ({ content, contentType }) => {
+  console.log(content);
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
-        <h1>{contentType}</h1>
+        {content.Response !== "False" && (
+          <h1 className="header">{contentType}</h1>
+        )}
         <div className="movie-container">
-          {content?.Response ? (
+          {content.Response !== "False" ? (
             content?.Search.map((content, index) => (
               <MovieCard
                 key={index}
@@ -19,7 +22,7 @@ const MovieListing = ({ content, contentType }) => {
             ))
           ) : (
             <div className="movies-error">
-              <h1>{content?.error}</h1>
+              <h1>{content?.Error}</h1>
             </div>
           )}
         </div>
