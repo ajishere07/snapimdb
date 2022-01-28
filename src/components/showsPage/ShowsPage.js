@@ -29,7 +29,7 @@ const ShowsPage = () => {
     return () => {
       dispatch(searchedInSeries(""));
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       {series ? (

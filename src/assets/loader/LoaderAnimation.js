@@ -4,7 +4,7 @@ import "./LoaderAnimation.scss";
 const LoaderAnimation = ({ requestName }) => {
   return (
     <div className="loader-container">
-      <img src={img} className="img" />
+      <img src={img} className="img" alt="logo" />
       <h3>{requestName}</h3>
     </div>
   );

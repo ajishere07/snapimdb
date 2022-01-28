@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MovieListing from "../contentListing/ContentListing";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,7 +14,6 @@ import {
 } from "../../features/searchContent/searchContentSlice";
 const MoviesPage = () => {
   const dispatch = useDispatch();
-
   const movies = useSelector(getAllMovies);
   const searchTerm = useSelector(searchedTermMovies);
   const status = useSelector(searchStatus);
@@ -28,7 +27,7 @@ const MoviesPage = () => {
     return () => {
       dispatch(searchedInMovie(""));
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       {movies ? (
