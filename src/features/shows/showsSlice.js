@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_Key } from "../../apis/movieAPI_KEY";
 import movieAPI from "../../apis/movieAPI";
-const demoSeriesText = "friends";
+
 export const fetchAsyncSeries = createAsyncThunk(
   "movies/fetchAsyncSeries",
-  async () => {
+  async (requestString) => {
     const res = await movieAPI
-      .get(`?apiKey=${API_Key}&s=${demoSeriesText}&type=series`)
+      .get(`?apiKey=${API_Key}&s=${requestString || `friends`}&type=series`)
       .catch((e) => {
         console.log("Error:", e);
       });
@@ -16,6 +16,7 @@ export const fetchAsyncSeries = createAsyncThunk(
 
 const initialState = {
   series: null,
+  status: "",
 };
 
 const showsSlice = createSlice({
@@ -23,19 +24,19 @@ const showsSlice = createSlice({
   initialState,
 
   extraReducers: {
-    [fetchAsyncSeries.pending]: () => {
-      console.log("pending");
+    [fetchAsyncSeries.pending]: (state) => {
+      state.status = "pending";
     },
     [fetchAsyncSeries.fulfilled]: (state, { payload }) => {
-      console.log("fulfilled ");
-
-      return { ...state, series: payload };
+      state.status = "fulfilled";
+      state.series = payload;
     },
-    [fetchAsyncSeries.rejected]: () => {
-      console.log("rejected");
+    [fetchAsyncSeries.rejected]: (state) => {
+      state.status = "rejected";
     },
   },
 });
 
 export const getAllShows = (state) => state.shows.series;
+export const searchStatus = (state) => state.shows.status;
 export default showsSlice.reducer;

@@ -2,15 +2,21 @@
 
 .movie-list {
   margin: 20px 0;
-  h1 {
+  .header {
     color: $font-primary;
-    margin-bottom: 10px;
     font-weight: 400;
+    background-color: $primary-color;
   }
 }
 
 .movie-container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 15px;
+  .movies-error {
+    h1 {
+      color: white;
+    }
+  }
 }

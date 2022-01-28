@@ -77,7 +77,7 @@ const MovieDetail = () => {
             </div>
           </>
         ) : (
-          <LoaderAnimation />
+          <LoaderAnimation requestName="Loading..." />
         )}
       </div>
     </>

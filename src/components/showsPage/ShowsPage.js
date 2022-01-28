@@ -1,33 +1,50 @@
 import React, { useEffect } from "react";
 import ShowListing from "../contentListing/ContentListing";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAsyncSeries, getAllShows } from "../../features/shows/showsSlice";
+import {
+  fetchAsyncSeries,
+  getAllShows,
+  searchStatus,
+} from "../../features/shows/showsSlice";
 import LoaderAnimation from "../../assets/loader/LoaderAnimation";
-
+import SearchBar from "../SearchBar/SearchBar";
+import {
+  searchedInSeries,
+  searchedTermSeries,
+} from "../../features/searchContent/searchContentSlice";
 const ShowsPage = () => {
   const dispatch = useDispatch();
   const series = useSelector(getAllShows);
+  const searchedTerm = useSelector(searchedTermSeries);
+  //render the shows as per the Status of the api call
 
+  const status = useSelector(searchStatus);
   useEffect(() => {
-    // const fetchMoviesData = async () => {
-    //   const res = await movieAPI
-    //     .get(`?apiKey=${API_Key}&s=${movieText}&type=movie`)
-    //     .catch((e) => {
-    //       console.log("Error:", e);
-    //     });
-    //   console.log(res);
-    //   dispatch(addMovie(res.data));
-    // };
+    dispatch(fetchAsyncSeries(searchedTerm));
+  }, [dispatch, searchedTerm]);
 
-    // fetchMoviesData();
-    dispatch(fetchAsyncSeries());
-  }, [dispatch]);
+  // your searched series will replace with
+  // the default movies as soon as the page unmounts
+  useEffect(() => {
+    return () => {
+      dispatch(searchedInSeries(""));
+    };
+  }, []);
   return (
     <div>
       {series ? (
-        <ShowListing content={series} contentType="Series" />
+        <>
+          <SearchBar searchPlaceholder="Search Web Shows..." />
+          {status === "fulfilled" ? (
+            <ShowListing content={series} contentType="Series" />
+          ) : status === "pending" ? (
+            <LoaderAnimation requestName="Searching..." />
+          ) : (
+            <h1>Something went wrong</h1>
+          )}
+        </>
       ) : (
-        <LoaderAnimation />
+        <LoaderAnimation requestName="Loading..." />
       )}
     </div>
   );
