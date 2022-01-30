@@ -1,3 +1,17 @@
+# About
+SnapIMDb is a react project where You search movies and web shows(series). The API SnapIMDb using is http://www.omdbapi.com/ . 
+
+# screenshots
+
+![SnapIMDb - Get Info Of Movies And Series](https://user-images.githubusercontent.com/73534589/151703169-97765919-bbc9-4e28-ba77-3c2166806bd1.png)
+![SnapIMDb - Get Info Of Movies And Series (1)](https://user-images.githubusercontent.com/73534589/151703174-c1469476-da3c-49bf-8126-a2471d4e91a4.png)
+![SnapIMDb - Get Info Of Movies And Series (2)](https://user-images.githubusercontent.com/73534589/151703175-c58e50bb-3e04-4967-8a8a-c3cbc149f292.png)
+
+# Feature
+
+1. Search Movies and series.
+2. Get details of the content.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
