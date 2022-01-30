@@ -4,7 +4,6 @@ import MovieCard from "../contentCard/ContentCard";
 import "./ContentListing.scss";
 
 const MovieListing = ({ content, contentType }) => {
-  console.log(content);
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
