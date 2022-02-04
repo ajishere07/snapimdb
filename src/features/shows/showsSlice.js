@@ -4,9 +4,14 @@ import movieAPI from "../../apis/movieAPI";
 
 export const fetchAsyncSeries = createAsyncThunk(
   "movies/fetchAsyncSeries",
-  async (requestString) => {
+  async (a) => {
+    console.log(a);
     const res = await movieAPI
-      .get(`?apiKey=${API_Key}&s=${requestString || `friends`}&type=series`)
+      .get(
+        `?apiKey=${API_Key}&s=${a.searchedTerm || `friends`}&page=${
+          a.page
+        }&type=series`
+      )
       .catch((e) => {
         console.log("Error:", e);
       });
