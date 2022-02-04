@@ -3,13 +3,16 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import PageNotFound from "./components/pageNotFound/PageNotFound";
 import Footer from "./components/footer/Footer";
-
+import { useLocation } from "react-router";
 import Header from "./components/header/Header";
 import MoviesPage from "./components/moviesPage/MoviesPage";
 import ShowsPage from "./components/showsPage/ShowsPage";
 import MovieDetail from "./components/contentDetail/ContentDetail";
 import SeriesDetail from "./components/contentDetail/ContentDetail";
+import PaginationElement from "./components/Pagination/PaginationElement";
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
       <Header />
@@ -23,6 +26,7 @@ function App() {
           <Route element={<PageNotFound />}></Route>
         </Routes>
       </div>
+      {location.pathname !== "/" && <PaginationElement />}
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { resetPage } from "../../features/pagination/pagesSlice";
 import {
   searchedInMovie,
   searchedInSeries,
@@ -12,6 +13,7 @@ const SearchBar = ({ searchPlaceholder }) => {
   const [inputContent, setInputContent] = useState("");
 
   const searchContent = () => {
+    dispatch(resetPage());
     if (inputRef.current.placeholder === "Search Movies...")
       dispatch(searchedInMovie(inputContent));
     if (inputRef.current.placeholder === "Search Web Shows...")

@@ -1,12 +1,27 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_Key } from "../../apis/movieAPI_KEY";
 import movieAPI from "../../apis/movieAPI";
-
+import { pageNumber } from "../pagination/pagesSlice";
+const text = "harry";
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async (requestString) => {
+  async (page_number) => {
     const res = await movieAPI
-      .get(`?apiKey=${API_Key}&s=${requestString || `avengers`}&type=movie`)
+      .get(`?apiKey=${API_Key}&s=${text}&page=${page_number}&type=movie`)
+      .catch((e) => {
+        console.log("Error:", e);
+      });
+    return res.data;
+  }
+);
+
+export const searchAsyncMovies = createAsyncThunk(
+  "movies/searchAsyncMovies",
+  async (a) => {
+    console.log(a);
+    console.log(typeof a.page);
+    const res = await movieAPI
+      .get(`?apiKey=${API_Key}&s=${a.searchTerm}&page=${a.page}&type=movie`)
       .catch((e) => {
         console.log("Error:", e);
       });
@@ -15,8 +30,8 @@ export const fetchAsyncMovies = createAsyncThunk(
 );
 
 const initialState = {
+  fetchStatus: "",
   movies: null,
-  status: "",
 };
 
 const movieSlice = createSlice({
@@ -25,19 +40,28 @@ const movieSlice = createSlice({
 
   extraReducers: {
     [fetchAsyncMovies.pending]: (state) => {
-      state.status = "pending";
+      state.fetchStatus = "pending";
     },
     [fetchAsyncMovies.fulfilled]: (state, { payload }) => {
-      state.status = "pending";
-
+      state.fetchStatus = "fulfilled";
       state.movies = payload;
     },
     [fetchAsyncMovies.rejected]: (state) => {
-      state.status = "rejected";
+      state.fetchStatus = "rejected";
+    },
+    [searchAsyncMovies.pending]: (state) => {
+      state.fetchStatus = "pending";
+    },
+    [searchAsyncMovies.fulfilled]: (state, { payload }) => {
+      state.fetchStatus = "fulfilled";
+      state.movies = payload;
+    },
+    [searchAsyncMovies.rejected]: (state) => {
+      state.fetchStatus = "rejected";
     },
   },
 });
 
-export const searchStatus = (state) => state.shows.status;
+export const searchStatus = (state) => state.movies.fetchStatus;
 export const getAllMovies = (state) => state.movies.movies;
 export default movieSlice.reducer;

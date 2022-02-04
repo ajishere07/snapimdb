@@ -12,22 +12,27 @@ import {
   searchedInSeries,
   searchedTermSeries,
 } from "../../features/searchContent/searchContentSlice";
+import { pageNumber, resetPage } from "../../features/pagination/pagesSlice";
+
 const ShowsPage = () => {
   const dispatch = useDispatch();
   const series = useSelector(getAllShows);
   const searchedTerm = useSelector(searchedTermSeries);
   //render the shows as per the Status of the api call
-
+  const page = useSelector(pageNumber);
+  console.log(page);
   const status = useSelector(searchStatus);
   useEffect(() => {
-    dispatch(fetchAsyncSeries(searchedTerm));
-  }, [dispatch, searchedTerm]);
+    let a = { searchedTerm, page };
+    dispatch(fetchAsyncSeries(a));
+  }, [dispatch, searchedTerm, page]);
 
   // your searched series will replace with
   // the default movies as soon as the page unmounts
   useEffect(() => {
     return () => {
       dispatch(searchedInSeries(""));
+      dispatch(resetPage());
     };
   }, [dispatch]);
   return (
