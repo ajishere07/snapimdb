@@ -31,7 +31,7 @@ const PaginationElement = () => {
       const lastPage = Math.ceil(total_pages_to_render);
       setLast_page_number(lastPage);
     }
-  }, []);
+  }, [location.pathname, movieContent, seriesContent]);
   return (
     <div className="optionsContainer">
       <span

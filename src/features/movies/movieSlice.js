@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_Key } from "../../apis/movieAPI_KEY";
 import movieAPI from "../../apis/movieAPI";
-import { pageNumber } from "../pagination/pagesSlice";
+
 const text = "harry";
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",

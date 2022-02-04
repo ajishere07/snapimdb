@@ -25,7 +25,7 @@ const MoviesPage = () => {
 
   useEffect(() => {
     if (page !== 0 && searchTerm === "") dispatch(fetchAsyncMovies(page));
-  }, [dispatch, page]);
+  }, [dispatch, page, searchTerm]);
 
   useEffect(() => {
     if (searchTerm !== "" && page !== 0) {
